@@ -157,4 +157,8 @@ NEXTAUTH_SECRET=your_secret_here
 * Team-level dashboards and roles
 * Push notifications for due tasks
 * Integration with Google Calendar
+  <img width="1358" height="657" alt="Screenshot 2025-10-22 034443" src="https://github.com/user-attachments/assets/95315fe5-f2ba-49ca-8c1f-a149371f53e5" />
+
+  
+
 
