@@ -1,36 +1,160 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+```markdown
+# 🧠 PracSphere – AI-Powered ERP Task Management System
 
-## Getting Started
+PracSphere is a modern **ERP-style task management application** built with **Next.js 15**, **TypeScript**, **NextAuth.js**, and **MongoDB**.  
+It allows users to register, log in securely, and manage their personal or work-related tasks efficiently — all within a clean, responsive UI.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Features
+
+✅ **User Authentication**  
+- Secure login using **NextAuth.js (Credentials Provider)**  
+- Passwords hashed with **bcryptjs**  
+- Session management using JWT  
+
+✅ **Task Management**  
+- Create, read, update, and delete tasks  
+- Toggle between **Pending** and **Completed** states  
+- Automatic filtering and sorting  
+
+✅ **Dashboard**  
+- Personalized greeting using session data  
+- Task summary cards for quick analytics  
+- Fully responsive dashboard UI  
+
+✅ **Tech Stack**  
+- ⚡ **Next.js 15** (App Router + Turbopack)  
+- 🧩 **TypeScript**  
+- 🎨 **Tailwind CSS**  
+- 🧠 **NextAuth.js v5**  
+- 🍃 **MongoDB + MongoClient**  
+- 🧱 **Lucide-react** for icons  
+- 📦 **pnpm** for workspace-based monorepo setup  
+
+---
+
+## 🧩 Project Structure
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+pracsphere-assignment1/
+├── apps/
+│   └── web/
+│       ├── app/
+│       │   ├── api/
+│       │   │   └── tasks/
+│       │   │       ├── route.ts        # Task CRUD APIs
+│       │   │       └── [id]/route.ts   # Single task operations
+│       │   ├── dashboard/              # Dashboard UI + logic
+│       │   ├── login/                  # Auth pages
+│       │   ├── globals.css             # Tailwind global styles
+│       │   └── layout.tsx              # Root layout with SessionProvider
+│       ├── lib/
+│       │   ├── auth.ts                 # NextAuth configuration
+│       │   └── mongodb.ts              # MongoDB connection helper
+│       └── components/                 # UI components (TaskCard, TaskForm, etc.)
+└── packages/
+└── ui/                             # Shared UI components
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+````
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## ⚙️ Setup Instructions
 
-To learn more about Next.js, take a look at the following resources:
+### 1️⃣ Clone the repository
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+git clone https://github.com/<your-username>/pracsphere-assignment1.git
+cd pracsphere-assignment1/apps/web
+````
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+### 2️⃣ Install dependencies
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+We recommend using **pnpm**:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+pnpm install
+```
+
+If you prefer npm:
+
+```bash
+npm install
+```
+
+---
+
+### 3️⃣ Create environment variables
+
+Create a `.env.local` file in the `/apps/web` folder:
+
+```bash
+# MongoDB connection
+MONGODB_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/Mahathidb
+
+# NextAuth configuration
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your_random_generated_secret
+```
+
+👉 You can use `openssl rand -base64 32` to generate a strong secret.
+
+---
+
+### 4️⃣ Run the development server
+
+```bash
+pnpm run dev
+```
+
+Visit 👉 [http://localhost:3000](http://localhost:3000)
+
+---
+
+## 🧱 Common Scripts
+
+| Command          | Description                           |
+| ---------------- | ------------------------------------- |
+| `pnpm run dev`   | Starts the Next.js app in development |
+| `pnpm run build` | Builds for production                 |
+| `pnpm start`     | Runs the production build             |
+| `pnpm lint`      | Runs ESLint checks                    |
+
+---
+
+## 🔒 Security Notes
+
+🚫 **Never commit your `.env` file**
+Instead, commit an `.env.example` with placeholders:
+
+```env
+MONGODB_URI=your_mongodb_uri_here
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your_secret_here
+```
+
+✅ Actual secrets should go into `.env.local` (kept private).
+
+---
+
+## 📸 Preview (Optional)
+
+*Add screenshots or GIFs of your UI here:*
+
+```
+📸 Dashboard | 🔐 Login Page | ✅ Task Management
+```
+
+---
+
+## 💡 Future Enhancements
+
+* AI-based task prioritization
+* Team-level dashboards and roles
+* Push notifications for due tasks
+* Integration with Google Calendar
+
