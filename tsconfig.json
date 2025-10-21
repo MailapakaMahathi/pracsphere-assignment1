@@ -1,0 +1,54 @@
+{
+  "compilerOptions": {
+    /* 🔹 Modern JS output for Next.js */
+    "target": "ES2022",
+    "module": "ESNext",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    /* 🔹 Better module resolution (required for ESM + Turbopack) */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    /* 🔹 TypeScript strictness and safety */
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    /* 🔹 React / JSX */
+    "jsx": "preserve",
+    "jsxImportSource": "react",
+    /* 🔹 Interop and type helpers */
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "incremental": true,
+    "noEmit": true,
+    /* 🔹 Path aliases */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./*"
+      ],
+      "@repo/ui": [
+        "../../packages/ui"
+      ]
+    },
+    /* 🔹 Next.js plugin for better editor support */
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "allowJs": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
